@@ -7,11 +7,8 @@ import Home from "./Pages/Home";
 import axios from "axios";
 import './App.css'
 import { Route, Router, Routes, useNavigate } from "react-router-dom";
-import ProductList from "./Pages/ProductList";
 
-
-
-
+import Client from "./Pages/Client";
 
 const App = () => {
   const [product, setProduct] = useState({});
@@ -117,8 +114,8 @@ const App = () => {
      
       <Routes>
         {/* <Route path="/" element={<ProductList/>}/> */}
-        <Route path="/" element={<Home/>}/>
-        <Route path="/products" element={<ProductList />} />
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/client" element={<Client />} />
 
         <Route
           path="/form"
