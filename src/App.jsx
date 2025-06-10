@@ -1,10 +1,16 @@
 
+
 import React, { useEffect, useState, useRef } from "react";
 import Form from "./Pages/Form";
 import Datatable from "./Pages/Datatable";
 import Home from "./Pages/Home";
 import axios from "axios";
-import { Route, Routes, useNavigate } from "react-router-dom";
+import './App.css'
+import { Route, Router, Routes, useNavigate } from "react-router-dom";
+import ProductList from "./Pages/ProductList";
+
+
+
 
 
 const App = () => {
@@ -14,6 +20,7 @@ const App = () => {
   const [editId, setEditId] = useState("");
   const imgRef = useRef();
   const [error, setError] = useState({});
+  
 
   const navigate = useNavigate();
   const URL = "http://localhost:3000/product";
@@ -107,34 +114,11 @@ const App = () => {
 
   return (
     <>
-      {/* <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/form"
-          element={
-            <Form
-              handleChange={handleChange}
-              product={product}
-              handleSubmit={handleSubmit}
-              imgRef={imgRef}
-              isEdit={editId !== ""}
-              error={error}
-            />
-          }
-        />
-        <Route
-          path="/datatable"
-          element={
-            <Datatable
-              productsData={productsData}
-              handleDelete={handleDelete}
-              handleEdit={handleEdit}
-            />
-          }
-        />
-      </Routes> */}
+     
       <Routes>
+        {/* <Route path="/" element={<ProductList/>}/> */}
         <Route path="/" element={<Home/>}/>
+        <Route path="/products" element={<ProductList />} />
 
         <Route
           path="/form"

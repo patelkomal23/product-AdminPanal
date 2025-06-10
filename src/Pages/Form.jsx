@@ -1,22 +1,16 @@
-
 import React from "react";
 
 import Header from "../components/Header";
-import Side from "../components/Side"
+import Side from "../components/Side";
 
-const Form = ({
-  handleChange,
-  product,
 
-  handleSubmit,
-  imgRef,
-  error,
-}) => {
+
+const Form = ({ handleChange, product, handleSubmit, imgRef, error }) => {
   return (
     <>
       <div className="wrapper">
         {/* Sidebar */}
-       <Side/>
+        <Side />
         {/* End Sidebar */}
         <div className="main-panel">
           {/* Navbar start*/}
@@ -50,9 +44,16 @@ const Form = ({
                 <div className="col-md-12">
                   <form action="" method="post" onSubmit={handleSubmit}>
                     <div className="card">
-                      <div className="card-header">
-                        <div className="card-title">Form Elements</div>
+                      <div className="card">
+                        <div className="card-header">
+                          <button className="btn btn-info end">
+                            View Product Page
+                          </button>
+                          <div className="card-title">Form Elements</div>
+                        </div>
+                        
                       </div>
+
                       <div className="card-body">
                         <div className="row">
                           <div className="col-md-6 col-lg-4">
@@ -144,7 +145,6 @@ const Form = ({
                                 </span>
                               )} */}
                             </div>
-                         
 
                             <div className="form-group">
                               <label htmlFor="description" className="fw-bold">
@@ -163,6 +163,41 @@ const Form = ({
                                 </span>
                               )}
                             </div>
+
+                            {/* brand */}
+
+                            <div className="form-group">
+                              <label htmlFor="brand" className="fw-bold">
+                                Product Brand{" "}
+                              </label>
+                              <input
+                                type="text"
+                                name="brand"
+                                onChange={handleChange}
+                                value={product.brand || ""}
+                                className="form-control"
+                                id="brand"
+                                placeholder="Enter product barnd"
+                              />
+                            </div>
+                            {/* category */}
+
+                            <div className="form-group">
+                              <label htmlFor="category" className="fw-bold">
+                                Product Category{" "}
+                              </label>
+                              <input
+                                type="text"
+                                name="category"
+                                onChange={handleChange}
+                                value={product.category || ""}
+                                className="form-control"
+                                id="category"
+                                placeholder="Enter product barnd"
+                              />
+                            </div>
+
+                            {/* rating */}
                           </div>
                         </div>
                       </div>

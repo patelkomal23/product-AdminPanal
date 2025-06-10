@@ -1,11 +1,8 @@
-
 import React from "react";
-
-
 import Side from "../components/Side";
 import Header from "../components/Header";
 
-const Datatable = ({ productsData, handleDelete,handleEdit }) => {
+const Datatable = ({ productsData, handleDelete, handleEdit }) => {
   return (
     <>
       <div className="wrapper">
@@ -161,7 +158,7 @@ const Datatable = ({ productsData, handleDelete,handleEdit }) => {
                               <th>Action</th>
                             </tr>
                           </thead>
-                          
+
                           <tbody>
                             {productsData.map((item, idx) => {
                               return (
@@ -185,18 +182,16 @@ const Datatable = ({ productsData, handleDelete,handleEdit }) => {
                                       }}
                                     />
                                   </td>
-
-                                  <td>
-                                    {item.godown ? item.godown.toString() : []}
-                                  </td>
                                   <td>{item.description}</td>
+                                  <td>{item.brand}</td>
+                                  <td>{item.category}</td>
 
                                   <td>
-                                       <button
+                                    <button
                                       className="btn btn-warning"
                                       onClick={() => handleEdit(item.id)}
                                     >
-                                     Edit
+                                      Edit
                                     </button>
                                     <button
                                       className="btn btn-danger"
