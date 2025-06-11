@@ -1,5 +1,4 @@
 
-
 import React, { useEffect, useState, useRef } from "react";
 import Form from "./Pages/Form";
 import Datatable from "./Pages/Datatable";
@@ -115,7 +114,7 @@ const App = () => {
       <Routes>
         {/* <Route path="/" element={<ProductList/>}/> */}
         <Route path="/home" element={<Home/>}/>
-        <Route path="/client" element={<Client />} />
+        <Route path="/" element={<Client />} />
 
         <Route
           path="/form"

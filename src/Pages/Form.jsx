@@ -2,10 +2,10 @@ import React from "react";
 
 import Header from "../components/Header";
 import Side from "../components/Side";
-
-
+import { Navigate, useNavigate } from "react-router";
 
 const Form = ({ handleChange, product, handleSubmit, imgRef, error }) => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="wrapper">
@@ -46,12 +46,14 @@ const Form = ({ handleChange, product, handleSubmit, imgRef, error }) => {
                     <div className="card">
                       <div className="card">
                         <div className="card-header">
-                          <button className="btn btn-info end">
-                            View Product Page
+                          <button
+                            className="btn btn-warning fw-semibold"
+                            onClick={() => navigate("/")}
+                          >
+                            Main Page
                           </button>
                           <div className="card-title">Form Elements</div>
                         </div>
-                        
                       </div>
 
                       <div className="card-body">
@@ -198,11 +200,47 @@ const Form = ({ handleChange, product, handleSubmit, imgRef, error }) => {
                             </div>
 
                             {/* rating */}
+
+                            {/* Review/Rating */}
+                            <div className="form-group">
+                              <label htmlFor="rating" className="fw-bold">
+                                Product Rating
+                              </label>
+                              <div>
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                  <label key={star} style={{ marginRight: "10px", cursor: "pointer" }}>
+                                    <input
+                                      type="radio"
+                                      name="rating"
+                                      value={star}
+                                      checked={+product.rating === star}
+                                      onChange={handleChange}
+                                      style={{ display: "none" }}
+                                    />
+                                    <i
+                                      className={
+                                        +product.rating >= star ? "bi bi-star text-warning" : "bi bi-star-o text-primary"
+                                      }
+                                    ></i>
+                                  </label>
+                                ))}
+                              </div>
+                              {error.rating && (
+                                <span className="text-danger">{error.rating}</span>
+                              )}
+                            </div>
+
                           </div>
                         </div>
                       </div>
                       <div className="card-action">
-                        <button className="btn btn-success">Submit</button>
+                        <button
+                          className="btn btn-success"
+                          onClick={() => navigate("/")} //
+                        >
+                          Submit
+                        </button>
+
                         <button className="btn btn-danger">Cancel</button>
                       </div>
                     </div>

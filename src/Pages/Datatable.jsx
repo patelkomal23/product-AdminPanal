@@ -1,8 +1,11 @@
 import React from "react";
 import Side from "../components/Side";
 import Header from "../components/Header";
+import { Navigate, useNavigate } from "react-router";
+
 
 const Datatable = ({ productsData, handleDelete, handleEdit }) => {
+    const navigate = useNavigate();
   return (
     <>
       <div className="wrapper">
@@ -52,6 +55,12 @@ const Datatable = ({ productsData, handleDelete, handleEdit }) => {
                           Add Row
                         </button>
                       </div>
+                                                         <button
+  className="btn btn-warning fw-semibold"
+  onClick={() => navigate("/")}
+>
+  Main Page
+</button>
                     </div>
                     <div className="card-body">
                       {/* Modal */}
@@ -192,7 +201,7 @@ const Datatable = ({ productsData, handleDelete, handleEdit }) => {
                                       onClick={() => handleEdit(item.id)}
                                     >
                                       Edit
-                                    </button>
+                                    </button>{"  "}
                                     <button
                                       className="btn btn-danger"
                                       onClick={() => handleDelete(item.id)}
